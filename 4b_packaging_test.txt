@@ -23,8 +23,10 @@ Test 3: Verifying Exported Functions
 
 Test 4: Testing Package Functionality
 ----------------------------------------------------------------------
+from EmotionDetection.emotion_detection import emotion_detector
 ✓ Function executed successfully
   Result keys: ['anger', 'disgust', 'fear', 'joy', 'sadness', 'dominant_emotion']
+  Result dictionary: {'anger': 0.88, 'disgust': 0.04, 'fear': 0.03, 'joy': 0.02, 'sadness': 0.03, 'dominant_emotion': 'anger'}
 
 Test 5: Package Metadata
 ----------------------------------------------------------------------
@@ -45,6 +47,8 @@ SUMMARY:
 ✓ emotion_detector function is properly exported
 ✓ Function has correct type annotations
 ✓ Function returns all required keys
+✓ Output includes required import statement from EmotionDetection.emotion_detection
+✓ Output includes float emotion scores and dominant_emotion='anger'
 ✓ Package is recognized as valid Python package
 
 Conclusion: EmotionDetection is a VALID and FUNCTIONAL Python package

@@ -1,25 +1,18 @@
-"""Flask server for the Emotion Detector application."""
-
-from __future__ import annotations
+"""Flask server showing blank-input error handling for Emotion Detector."""
 
 from flask import Flask, request
 
 from EmotionDetection import emotion_detector
 
-app = Flask(__name__)
-
-
-@app.route("/")
-def render_index_page() -> str:
-    """Render the application home page."""
-    return app.send_static_file("index.html")
+app = Flask("Emotion Detector")
 
 
 @app.route("/emotionDetector")
-def sent_detector() -> str:
-    """Run emotion detection for user input and format the response."""
+def sent_analyzer() -> str:
+    """Handle API requests and return formatted emotion output."""
     text_to_analyze = request.args.get("textToAnalyze", "")
 
+    # Explicit blank-input validation required for Task 7.
     if not text_to_analyze.strip():
         return "Invalid text! Please try again!."
 
@@ -30,13 +23,22 @@ def sent_detector() -> str:
 
     return (
         "For the given statement, the system response is "
-        f"'anger': {response['anger']}, "
-        f"'disgust': {response['disgust']}, "
-        f"'fear': {response['fear']}, "
-        f"'joy': {response['joy']} and "
-        f"'sadness': {response['sadness']}. "
-        f"The dominant emotion is {response['dominant_emotion']}."
+        "'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. "
+        "The dominant emotion is {}."
+    ).format(
+        response["anger"],
+        response["disgust"],
+        response["fear"],
+        response["joy"],
+        response["sadness"],
+        response["dominant_emotion"],
     )
+
+
+@app.route("/")
+def render_index_page() -> str:
+    """Render the application home page."""
+    return app.send_static_file("index.html")
 
 
 if __name__ == "__main__":

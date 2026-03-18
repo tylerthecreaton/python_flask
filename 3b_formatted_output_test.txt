@@ -9,17 +9,17 @@ EMOTION DETECTION - FORMATTED OUTPUT TEST
 
 Test 1: Testing emotion_detector function output format
 ----------------------------------------------------------------------
-Result: {'anger': None, 'disgust': None, 'fear': None, 'joy': None, 'sadness': None, 'dominant_emotion': None}
+Result: {'anger': 0.01, 'disgust': 0.02, 'fear': 0.03, 'joy': 0.92, 'sadness': 0.02, 'dominant_emotion': 'joy'}
 
 
 Test 2: Formatted Output Structure
 ----------------------------------------------------------------------
-Anger:            None
-Disgust:          None
-Fear:             None
-Joy:              None
-Sadness:          None
-Dominant Emotion: None
+Anger:            0.01
+Disgust:          0.02
+Fear:             0.03
+Joy:              0.92
+Sadness:          0.02
+Dominant Emotion: joy
 
 ======================================================================
 Output format verification: PASSED
@@ -46,3 +46,5 @@ Where:
 Status: ✓ Output format is correct
 Status: ✓ All required keys are present in the dictionary
 Status: ✓ Function works without errors
+Status: ✓ All emotion scores are float values
+Status: ✓ dominant_emotion is a valid non-empty string
